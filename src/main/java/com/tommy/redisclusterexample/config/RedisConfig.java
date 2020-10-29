@@ -6,6 +6,7 @@ import io.lettuce.core.RedisURI;
 import io.lettuce.core.SocketOptions;
 import io.lettuce.core.cluster.ClusterClientOptions;
 import io.lettuce.core.cluster.ClusterTopologyRefreshOptions;
+import org.springframework.cache.interceptor.SimpleKey;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
@@ -34,9 +35,6 @@ public class RedisConfig {
 //    redisClusterConfiguration.clusterNode("127.0.0.1", 5004);
 //    redisClusterConfiguration.clusterNode("127.0.0.1", 5005);
 //    redisClusterConfiguration.clusterNode("127.0.0.1", 5006);
-
-    new LettuceConnectionFactory(new RedisStandaloneConfiguration("server", 6379));
-
 
     SocketOptions socketOptions = SocketOptions.builder()
       .connectTimeout(Duration.ofSeconds(3))
